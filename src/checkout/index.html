@@ -76,7 +76,7 @@
             <fieldset>
               <legend>Address</legend>
               <label for="Address">Address</label>
-              <input type="text">
+              <input name="stree" required>
             </fieldset>
             <fieldset>
               <legend>Payment</legend>
@@ -99,9 +99,18 @@
                   <label for="Shipping">Shipping Estimate</label>
                   <p id="Shipping"></p>
                 </li>
+                <li>
+                  <label for="tax">Tax</label>
+                  <p id="tax"></p>
+                </li>
+                <li>
+                  <label for="orderTotal">Order Total</label>
+                  <p id="orderTotal"></p>
+                </li>
               </ul>
-
+              
             </fieldset>
+            <button id="checkoutSubmit">Checkout</button>
           </form>
         </section>
       </section>
