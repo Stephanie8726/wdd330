@@ -24,3 +24,8 @@ https://app.netlify.com/teams/stephanie8726/overview
 
 https://app.netlify.com/teams/stephanie8726/sites
 
+http://localhost:5173/
+
+
+http://localhost:5173/product_pages/?product=880RR
+(Stephanie - week02 individual activity => http://localhost:5173/product_pages/?product=880RR)
