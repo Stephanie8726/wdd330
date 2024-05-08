@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-unresolved
-import { getLocalStorage } from '..js/utils.mjs';
+import { getLocalStorage } from './utils.mjs';
 
 function renderCartContents() {
   const cartItems = getLocalStorage('so-cart') || [];
