@@ -1,11 +1,11 @@
-import {getlocalStorage} from './utils.njs'
+import { getLocalStorage } from "./utils.mjs";
 
-function renderCartContents(){
-  const cartItem = getlocalStorage('so-cart') || [];
-  const htmlItems = cartItem.map((item) => cartItemTemplate(item));
-  document.querySelector('.product.list').innerHTML =htmlItems.join('');
+function renderCartContents() {
+  const cartItems = getLocalStorage("so-cart");
+  console.log(cartItems);
+  const htmlItems = Array.of(cartItems).map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
-
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">

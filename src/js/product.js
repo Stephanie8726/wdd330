@@ -1,25 +1,30 @@
-import { setLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+// eslint-disable-next-line import/no-unresolved
+import { getLocalStorage } from '..js/utils.mjs';
 
-const dataSource = new ProductData("tents");
-
-function addProductToCart(product) {
-  setLocalStorage("so-cart", product);
-}
-// add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
-  alert(e.target.dataset.id, );
+function renderCartContents() {
+  const cartItems = getLocalStorage('so-cart');
+  console.debug(cartItems);
+  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  document.querySelector('.product-list').innerHTML = htmlItems.join('');
 }
 
-const updateQuantity = async (mode,num) => {
-  
+function cartItemTemplate(item) {
+  const newItem = `<li class="cart-card divider">
+  <a href="#" class="cart-card__image">
+    <img
+      src="${item.Image}"
+      alt="${item.Name}"
+    />
+  </a>
+  <a href="#">
+    <h2 class="card__name">${item.Name}</h2>
+  </a>
+  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
+  <p class="cart-card__quantity">qty: 1</p>
+  <p class="cart-card__price">$${item.FinalPrice}</p>
+</li>`;
 
+  return newItem;
 }
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
-
+renderCartContents();
