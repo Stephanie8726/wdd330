@@ -202,6 +202,32 @@ button {
   grid-column: 3;
 }
 
+
+/*---- delete item ----*/
+.delete-item {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+  font-size: 18px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/*---- total price ----*/
+.total-price-container {
+  display: flex;
+}
+
+.total-price-container div {
+  margin-right: 370px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: blue;
+}
+
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
