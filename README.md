@@ -31,3 +31,6 @@ http://localhost:5173/product_pages/?product=880RR
 (Stephanie - week02 individual activity => http://localhost:5173/product_pages/?product=880RR)
 
 git add . => stage everything
+git commit -m "message" => saving the changes
+git push origin (branch name) => pushing to github
+
