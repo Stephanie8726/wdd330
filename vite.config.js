@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   root: "src/",
 
+  base: "https://stephanie8726.github.io/wdd330/",
   build: {
     outDir: "../docs",
     rollupOptions: {
