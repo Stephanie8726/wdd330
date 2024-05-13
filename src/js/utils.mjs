@@ -15,15 +15,17 @@ export function setLocalStorage(key, data) {
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
+  qs(selector).addEventListener('touchend', (event) => {
     event.preventDefault();
     callback();
   });
-  qs(selector).addEventListener("click", callback);
+  qs(selector).addEventListener('click', callback);
 }
+
 export function setContent(selector, content){
   qs(selector).innerHTML = content;
 }
+
 export function getParam(param){
   const querString = window.location.search;
   const urlParams = new URLSearchParams(querString)

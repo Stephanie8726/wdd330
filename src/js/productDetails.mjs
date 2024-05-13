@@ -11,23 +11,21 @@ async function addToCartHandler(e){
     const product = await findProductById(e.target.dataset.id)
     addProductToCart(product);
 }
-document
-    .getElementById('addToCart')
-    .addEventListener('click', addToCartHandler);
 
 export default async function productDetails(productId){
-    const productData = await findProductById(productId);
-    renderProductDetails(productData);
+    const product = await findProductById(productId);
+    renderProductDetails(product);
 }
 
-function renderProductDetails(productData){
+function renderProductDetails(product){
     
-    setContent('#productName', productData.Brand.Name);
-    setContent('#productNameWithoutBrand', productData.NameWithoutBrand);
-    setContent('#productFinalPrice', productData.FinalPrice);
-    setContent('#productDescriptionHtmlSimple',productData.DescriptionHtmlSimple);
+    setContent('#productName', product.Brand.Name);
+    setContent('#productNameWithoutBrand', product.NameWithoutBrand);
+    setContent('#productFinalPrice', product.FinalPrice);
+    setContent('#productDescriptionHtmlSimple',product.DescriptionHtmlSimple);
     
-    qs('#productImage').setAttribute('src', productData.Image);
-
-    qs('#addToCart').addEventListener('click', addToCartHandler);
+    qs('#productImage').setAttribute('src', product.Image);
+    qs('#addToCart').dataset.id = product.id;
+    
+    qs('#addToCart').addEventListener('click', addProductToCart.bind(null, product));
 }
