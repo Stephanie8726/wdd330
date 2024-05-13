@@ -1,28 +1,19 @@
-import { getLocalStorage } from './utils.mjs';
+import { getLocalStorage, getParam, setLocalStorage } from './utils.mjs';
+import {findProductById} from './ProductData.mjs';
 
-function renderCartContents() {
-  const cartItems = getLocalStorage('so-cart') || [];
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector('.product-list').innerHTML = htmlItems.join('');
+function addProductToCart(product) {
+  const currentCart = getLocalStorage('so-cart') || [];
+  currentCart.push(product)
+  setLocalStorage('so-cart', currentCart);
+}
+async function addProductToCartHandler(e){
+  const product = await findProductById(e.target.dataset.id);
+  addProductToCart(product);
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
-    <img
-      src="${item.Image}"
-      alt="${item.Name}"
-    />
-  </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
-  </a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
+document
+  .getElementById('addToCart')
+  .addEventListener('click', addProductToCartHandler);
 
-  return newItem;
-}
-
-renderCartContents();
+const productId = getParam('product')
+findProductById(productId).then(console.log);
