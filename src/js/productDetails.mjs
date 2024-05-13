@@ -27,5 +27,5 @@ function renderProductDetails(product){
     qs('#productImage').setAttribute('src', product.Image);
     qs('#addToCart').dataset.id = product.id;
     
-    qs('#addToCart').addEventListener('click', addProductToCart.bind(null, product));
+    qs('#addToCart').addEventListener('click',  () => addToCartHandler(product));
 }
