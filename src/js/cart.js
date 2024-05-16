@@ -1,11 +1,15 @@
 import { getLocalStorage } from './utils.mjs';
 
 function renderCartContents() {
-  const cartItems = getLocalStorage('so-cart');
+  const cartItems = getLocalStorage('so-cart'); // Retrieve from local storage without fallback
   
-  const htmlItems = Array.of(cartItems).map((item) => cartItemTemplate(item));
+  // Check if cartItems is an array; if not, default to an empty array
+  const itemsToRender = Array.isArray(cartItems) ? cartItems : [];
+
+  const htmlItems = itemsToRender.map((item) => cartItemTemplate(item));
   document.querySelector('.product-list').innerHTML = htmlItems.join('');
 }
+
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
