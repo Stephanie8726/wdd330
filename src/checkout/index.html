@@ -8,22 +8,23 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/cart.js" type="module"></script>
   </head>
 
   <body>
     <header class="divider">
       <div class="logo">
-        <img src="images/noun_Tent_2517.svg" alt="tent image for logo" />
+        <img src="../images/noun_Tent_2517.svg" alt="tent image for logo" />
 
-        <a href="index.html">
+        <a href="../index.html">
           Sleep
           <span class="highlight">Outside</span>
         </a>
       </div>
 
       <div class="cart">
-        <a href="cart/">
+        <a href="/cart/">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
             <path
               d="M18.9 32.6c1.1 2.4 2.5 3.3 5.4 3.3 1.6 0 3.6-0.3 5.9-0.6 3.2-0.5 6.9-1 11.2-1 2.1 0 4.3 0.1 6.4 0.3 2.1 0.1 4.2 0.3 6.1 0.3 3.2 0 5.2-0.4 5.9-1.2 2.7-2.7 2.8-8.8 2.9-14.6 0.1-6.7 0.2-14.5 4.6-18.7 -0.5 0-1 0-1.6 0 -14.2 0-37.5 0-41.1 0C15.6 6.2 14.9 23.6 18.9 32.6z"
@@ -59,6 +60,59 @@
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <section class="checkout.foam">
+          <form name="checkout_name">
+            <fieldset>
+              <legend>Shipping</legend>
+              <div class="checkout_name">
+                <label for="fname">First Name</label>
+                <input name="fname" required/>
+                <label for="lname">Last Name</label>
+                <input name="lname" required/>
+
+              </div>
+                
+            </fieldset>
+            <fieldset>
+              <legend>Address</legend>
+              <label for="Address">Address</label>
+              <input name="street" required>
+            </fieldset>
+            <fieldset>
+              <legend>Payment</legend>
+              <label for="cadNumber">Card number</label>
+              <input type="number">
+              <label for="expiration">expiration</label>
+              <input name="expiration" required />
+              <label for="code">Security Code</label>
+              <input name="code" required />
+            </fieldset>
+            
+            <fieldset class="checkout-sumary">
+              <legend >Order Sumary</legend> 
+              <ul>
+                <li>
+                  <label for="cartTotal">Item Subtotal(<span id="num-items"></span>)</label>
+                  <p name="cartTotal" id="cartTotal"></p>
+                </li>
+                <li>
+                  <label for="Shipping">Shipping Estimate</label>
+                  <p id="Shipping"></p>
+                </li>
+                <li>
+                  <label for="tax">Tax</label>
+                  <p id="tax"></p>
+                </li>
+                <li>
+                  <label for="orderTotal">Order Total</label>
+                  <p id="orderTotal"></p>
+                </li>
+              </ul>
+              
+            </fieldset>
+            <button id="checkoutSubmit">Checkout</button>
+          </form>
+        </section>
       </section>
     </main>
 
